@@ -1,0 +1,418 @@
+// Variables
+$menu-shadow: #006ea5;
+$menu-line-color: white;
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+// Mixin For Span Element
+@mixin line-span($t) {
+  transition: all $t + s cubic-bezier(.5, 10, .6, .1);
+  display: block;
+  box-shadow: 2px 2px 4px darken($menu-shadow, 4%);
+}
+
+// Mixin For Centering Elements
+@mixin center {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.header {
+  position: fixed;
+  width: 70px;
+  height: 100%;
+  background: #383838;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  .menu {
+    cursor: pointer;
+    .menu-text {
+      opacity: 0;
+      color: white;
+      margin-bottom: .5em;
+    }
+    &:hover {
+      .menu-text {
+        opacity: 1;
+        animation-name: fade;
+        animation-duration: 1s;
+      }
+    }
+    .burger {
+      span {
+        @include line-span(0.4);
+      }
+      .active {
+        background: $menu-line-color;
+        width: 25px;
+        height: 3px;
+        margin-top: 4px;
+        @include center;
+      }
+      .cross {
+        background: $menu-line-color;
+        width: 25px;
+        height: 3px;
+        margin-top: 4px;
+        display: block;
+        @include center;
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+      .cross:nth-of-type(1) {
+        transform: rotate(45deg);
+      }
+      .cross:nth-of-type(2) {
+        transform: rotate(-45deg);
+        margin-top: -3px;
+      }
+    }
+  }
+  .other-menu {
+    position: fixed;
+    width: 250px;
+    left: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #242727;
+    opacity: .8;
+    ul {
+      width: 100%;
+      text-align: center;
+      .other-menu-item {
+        cursor: pointer;
+        border-bottom: 1px solid white;
+        transition: all 200ms linear;
+        color: white;
+        &:hover {
+          color: $menu-shadow;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1064px) {
+    width: 100%;
+    height: 60px;
+    top: 0;
+    left: 0;
+    padding-left: 1em;
+    justify-content: start;
+    align-items: start;
+    .other-menu {
+      height: 100vh;
+      top: 0;
+    }
+  }
+}
+
+.main {
+  margin-left: 70px;
+  .video-block {
+    position: relative;
+    background: #000;
+    height: 100vh;
+    video {
+      opacity: .4;
+    }
+  }
+  .brief {
+    position: absolute;
+    top: 60%;
+    padding-left: 30px;
+    background: #525252;
+    width: calc(100% - 100px);
+    color: white;
+  }
+  .my-menu {
+    z-index: 1;
+    padding-left: 250px;
+    background: #000;
+    &.fixed {
+      position: fixed;
+      top: 0;
+      width: calc(100% - 320px);
+      ~.hidden {
+        display: block;
+        height: 50px;
+      }
+    }
+    li {
+      cursor: pointer;
+      display: inline-block;
+      width: calc(100% / 4);
+      line-height: 50px;
+      background: #404040;
+      text-align: center;
+      box-sizing: border-box;
+      border-right: 1px solid rgba(255, 255, 255, 0.21);
+      color: white;
+      transition: all 500ms linear;
+      &.active {
+        background: $menu-shadow;
+      }
+      &:hover {
+        color: #a9a9a9;
+      }
+    }
+    ~.hidden {
+      display: none;
+      height: 50px;
+    }
+  }
+  .fixed-bg {
+    background-attachment: fixed;
+    border-bottom: 1px dotted #666;
+    background-position: left;
+    background-size: contain;
+    .container {
+      background: white;
+      margin-left: 250px;
+      display: flex;
+      justify-content: center;
+      padding: 1em 0;
+      .content {
+        width: 100%;
+        max-width: 1024px;
+        .title {
+          margin: 0;
+          padding: .8em;
+          font-size: 50px;
+          font-weight: 900;
+          color: #666;
+        }
+      }
+    }
+  }
+  .about {
+    background-image: url('/assets/images/222.jpg');
+    .box {
+      display: flex;
+      margin: 0 2em;
+      .me {
+        width: 50%;
+        margin-right: 1em;
+        img {
+          width: 100%;
+        }
+      }
+      .introduction {
+        width: 40%;
+        .name {
+          margin: 0;
+          color: #000;
+        }
+        .rank {
+          border-bottom: 1px solid #eee;
+          padding-bottom: 1em;
+          width: 100%;
+        }
+      }
+    }
+    .sub-item {
+      li {
+        padding: .5em;
+        border: 1px solid #eee;
+        margin: .5em;
+        display: inline-block;
+        span {
+          margin-right: .3em;
+        }
+      }
+    }
+  }
+  .experience {
+    background-image: url('/assets/images/333.jpg');
+    .box {
+      margin: 0 2em;
+      .education {
+        min-height: 90px;
+        display: flex;
+        border-radius: 10px;
+        &:nth-child(even) {
+          background: #eee;
+        }
+        .line {
+          width: 80px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 2em;
+          div {
+            width: 2px;
+            height: 100%;
+            background: #bdbdbd;
+          }
+          .year {
+            transition: all 50ms linear;
+            width: 20px;
+            line-height: 10px;
+            background: $menu-shadow;
+            border-radius: 35px;
+            span {
+              color: white;
+              visibility: hidden;
+              opacity: 0;
+            }
+          }
+          &:hover {
+            .year {
+              width: 60px;
+              line-height: 60px;
+              padding: .2em;
+              span {
+                visibility: visible;
+                opacity: 1;
+              }
+            }
+          }
+        }
+        .description {
+          position: relative;
+          margin: 1em 0;
+          width: 100%;
+          h3 {
+            margin: 0;
+            color: $menu-shadow;
+          }
+          ul {
+            margin: .5em 0;
+          }
+          .icon {
+            position: absolute;
+            top: 50%;
+            right: 37px;
+            font-size: 30px;
+            opacity: .2;
+            transform: rotate(15deg);
+          }
+        }
+      }
+    }
+  }
+  .skills {
+    background-image: url('/assets/images/444.jpg');
+    .box {
+      margin: 0 2em;
+      .bar {
+        width: 100%;
+        border-radius: 4px;
+        background: #eee;
+        .inner {
+          background: $menu-shadow;
+          height: 15px;
+          border-radius: 4px 0 0 4px;
+        }
+      }
+    }
+  }
+  .trait {
+    background-image: url('/assets/images/555.jpg');
+    .box {
+      margin: 0 2em;
+    }
+  }
+  .back {
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      animation-name: move;
+      animation-duration: 2s;
+      animation-direction: alternate-reverse;
+      animation-iteration-count: infinite;
+    }
+    .icon-arrow-up {
+      color: $menu-shadow;
+    }
+    .back-text {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-style: italic;
+      color: #999;
+      font-size: 12px;
+    }
+  }
+  @media screen and (max-width: 1064px) {
+    margin: 0;
+    .my-menu {
+      padding: 0;
+      &.fixed {
+        width: 100%;
+        top: 60px;
+      }
+    }
+    .fixed-bg {
+      .container {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .main {
+    .my-menu {
+      li {
+        font-size: 14px;
+      }
+    }
+    .fixed-bg {
+      .container {
+        .content {
+          .title {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+    .about {
+      .box {
+        display: block;
+        .me {
+          width: 100%;
+          margin: 0;
+        }
+        .introduction {
+          width: 100%;
+        }
+      }
+    }
+    .experience {
+      .box {
+        .education {
+          .line {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

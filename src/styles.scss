@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import 'common/style.css';
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
