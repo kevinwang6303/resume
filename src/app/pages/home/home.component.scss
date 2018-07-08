@@ -52,6 +52,7 @@ $menu-line-color: white;
   align-items: center;
   z-index: 2;
   .menu {
+    z-index: 1;
     cursor: pointer;
     .menu-text {
       opacity: 0;
@@ -131,6 +132,7 @@ $menu-line-color: white;
     .other-menu {
       height: 100vh;
       top: 0;
+      left: 0;
     }
   }
 }

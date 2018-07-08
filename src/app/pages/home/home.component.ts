@@ -26,7 +26,6 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-
   @ViewChild('video') video: ElementRef;
   @ViewChild('menu') menuElm: ElementRef;
   @ViewChild('about') about: ElementRef;
@@ -42,10 +41,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
     {
       name: 'EXPERIENCE',
       active: false
-    }, {
+    },
+    {
       name: 'SKILLS',
       active: false
-    }, {
+    },
+    {
       name: 'TRAIT',
       active: false
     }
@@ -58,82 +59,62 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor() {
     this.scrollEvent = fromEvent(window, 'scroll');
     this.scrollEvent.subscribe(() => {
-
-      let tempWidth = window.innerWidth;
+      const tempWidth = window.innerWidth;
 
       if (tempWidth < 1064) {
-
         this.setFixed(60);
       } else {
-
         this.setFixed(0);
       }
-
     });
   }
 
   private setFixed(value) {
-    if (this.menuElm.nativeElement.parentElement.getBoundingClientRect().top < value) {
+    if (
+      this.menuElm.nativeElement.parentElement.getBoundingClientRect().top <
+      value
+    ) {
       this.menuElm.nativeElement.classList.add('fixed');
     } else {
       this.menuElm.nativeElement.classList.remove('fixed');
     }
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     this.video.nativeElement.muted = true;
   }
 
   goMenu(index) {
-
-    this.menuArray.forEach(
-      (item) => {
-        item.active = false;
-      }
-    )
+    let ele;
+    this.menuArray.forEach(item => {
+      item.active = false;
+    });
     this.menuArray[index].active = true;
     switch (index) {
       case 0:
-        this.about.nativeElement.scrollIntoView({
-          block: 'start',
-          behavior: 'smooth'
-        });
+      ele = this.about.nativeElement;
         break;
       case 1:
-        this.experience.nativeElement.scrollIntoView({
-          block: 'start',
-          behavior: 'smooth'
-        });
+      ele = this.experience.nativeElement;
         break;
       case 2:
-        this.skills.nativeElement.scrollIntoView({
-          block: 'start',
-          behavior: 'smooth'
-        });
+      ele = this.skills.nativeElement;
         break;
       case 3:
-        this.trait.nativeElement.scrollIntoView({
-          block: 'start',
-          behavior: 'smooth'
-        });
+      ele = this.trait.nativeElement;
         break;
 
       default:
         break;
     }
-    /*
-        let tempWidth = window.innerWidth;
-        if (tempWidth < 1064) {
-          scrollIt(window.pageYOffset + eleHeight - 110, 300, 'linear');
-        } else {
-          scrollIt(window.pageYOffset + eleHeight - 50, 300, 'linear');
-        }*/
-
+    ele.scrollIntoView({
+      block: 'center',
+      behavior: 'smooth'
+    });
   }
   goTop() {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }
-
 }

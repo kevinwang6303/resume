@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:github": "ng build --prod --build-optimizer --base-href=https://kevinwang6303.github.io/resume/ && ngh"
+    "deploy:github": "ng build --prod --build-optimizer --base-href=https://kevinwang6303.github.io/resume/ && ngh -d dist/resume"
   },
   "private": true,
   "dependencies": {
