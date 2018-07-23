@@ -1,0 +1,350 @@
+<div class="video-block">
+  <video autoplay loop width="100%" height="100%" #video>
+    <source src="assets/video/videoplayback.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="brief">
+  <p>我是來自高雄的前端工程師 王崇軒</p>
+  <h2>Welcome, I'm Evan!</h2>
+</div>
+<div #content>
+  <ul class="my-menu" #menu>
+    <li [ngClass]="{'active':item.active}" *ngFor="let item of menuArray;let index = index;" (click)="goMenu(index)">
+      {{ item.name }}
+    </li>
+  </ul>
+  <div class="hidden"></div>
+
+  <div class="fixed-bg about" #about>
+    <div class="container">
+      <div class="content">
+        <h2 class="title">
+          ABOUT ME
+        </h2>
+        <div class="box">
+          <div class="me">
+            <img src="assets/images/1.jpg" alt="">
+          </div>
+          <div class="introduction">
+            <h4 class="name">Evan Wang 王崇軒</h4>
+            <h3 class="rank">小小前端工程師</h3>
+            <p>
+              嗨！我是 Evan 王崇軒，是一位熱愛學習的工程師，個性和善、積極，對於事物有所自己的堅持，想要出自我手的東西是最好的。
+            </p>
+            <p>
+              從研究所進入web世界，專研於網站超過三年的經驗後，後深深為它著迷，尤其是前端領域，版面上美好的設計，以及語言上的靈活性，可以創造出許多豐富的產品。
+            </p>
+          </div>
+        </div>
+        <ul class="sub-item">
+          <li (click)="downloadPdf()">
+            pdf
+          </li>
+          <li>
+            <span class="icon-location"></span>
+            <span>
+              高雄市，台灣
+            </span>
+          </li>
+          <li>
+            <span class="icon-mail2"></span>
+            <a href="mailto:kevinwang6303@gmail.com">kevinwang6303@gmail.com</a>
+          </li>
+          <li>
+            <span class="icon-github"></span>
+            <a href="https://github.com/kevinwang6303" target="_blank">
+              https://github.com/kevinwang6303
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="fixed-bg experience" #experience>
+    <div class="container">
+      <div class="content">
+        <h2 class="title">
+          EXPERIENCE
+        </h2>
+        <div class="box">
+          <section>
+            <h4>學經歷</h4>
+            <div class="education">
+              <div class="line">
+                <div></div>
+                <span class="year">
+                  <span>2015-06</span>
+                </span>
+                <div></div>
+              </div>
+              <div class="description">
+                <h3>國立高雄應用科技大學(現今國立高雄科大) - 電機所畢</h3>
+                <ul>
+                  <li>
+                    台灣電力公司 - 智慧電表統計網站
+                  </li>
+                </ul>
+                <span class="icon icon-library"></span>
+              </div>
+            </div>
+            <div class="education">
+              <div class="line">
+                <div></div>
+                <span class="year">
+                  <span>2015-11</span>
+                </span>
+                <div></div>
+              </div>
+              <div class="description">
+                <h3>哈瑪星科技</h3>
+                <ul>
+                  <li>
+                    TinCan學習統計分析
+                  </li>
+                  <li>
+                    企業輔銷系統
+                  </li>
+                  <li>
+                    HTML5電子書
+                  </li>
+                  <li>
+                    單間智慧教室
+                  </li>
+                  <li>
+                    CIRN─國民中小學課程與教學資源整合平臺
+                  </li>
+                  <li>
+                    2017臺北世大運官方首頁
+                  </li>
+                  <li>
+                    臺北市政府電子公報資訊網
+                  </li>
+                  <li>
+                    富邦影書城平台
+                  </li>
+                  <li>
+                    香港匯知教育出版社教學平台
+                  </li>
+                </ul>
+                <span class="icon icon-briefcase"></span>
+              </div>
+            </div>
+            <div class="education">
+              <div class="line">
+                <div></div>
+                <span class="year">
+                  <span>{{ toDay | date:'yyyy-MM' }}</span>
+                </span>
+                <div></div>
+              </div>
+              <div class="description">
+                <h3>至今</h3>
+                <ul>
+                  <li>
+                    Progressive Web Apps
+                  </li>
+                  <li>
+                    仿instagram留言牆
+                  </li>
+                  <li>
+                    學習React
+                  </li>
+                  <li>
+                    深入RxJs
+                  </li>
+                </ul>
+                <span class="icon icon-user"></span>
+              </div>
+            </div>
+          </section>
+          <div>
+            <h2>作品簡介</h2>
+            <ul>
+              <li>
+                <h3>TinCan學習統計分析</h3>
+                <p>
+                  在TinCan學習分析的統計上，公司主管建議是把資料儲存進關聯式資料庫內，但是個人覺得效能不太好，所以產生想學習NoSQL的興趣，認為應該會有更好的處理方式，來處理大數據以及raw data才對。
+                </p>
+              </li>
+              <li>
+                <h3>HTML5 Reader</h3>
+                <p>
+                  HTML5在開發上運用了大量的JQ以及css，所以在開發此產品的時候去深入了解Javascript以及css的，加強前端能力，包括了JQ的動畫、HTML5元素的使用，也體驗到瀏覽器的不同，接觸了能用畫的canvas的運用。
+                </p>
+              </li>
+              <li>
+                <h3>企業輔銷系統(久大行銷動型錄、台灣扣件服務雲)</h3>
+                <p>
+                  此產品是個人全端開發，前端用AngularJs、後端端是.Net WebForm，利用ashx撰寫api，第一次了解到前後端分離的好處，此產品內有完整的功能，包括會員系統、上傳檔案、統計分析，在此學習到了功能面的設計及規劃、利用c3.js去做分析圖表（長條、點線圖）等等的呈現，也藉此更了解Angular跟資料庫的處理。</p>
+              </li>
+              <li>
+                <h3>單間智慧教室(長榮航空、地磨兒小學)</h3>
+                <p>
+                  此產品也是屬於完整且個人全端的產品，單間智慧教室最特別的是SignalR上的使用，利用Signalr背後的socket，讓老師在上課即時出題時，學生realtIme接到提示，進行好的互動，也體驗到realtime的強大。
+                </p>
+              </li>
+              <li>
+                <h3>2017世大運</h3>
+                <p>
+                  此專案在公司與他人合作的專案，一樣是以AngularJs加上.Net WebForm去做開發，我負責的工作屬於前端(AngularJS)開發的部分，初期設計師設計以及切好版面後，與後端工程師由畫面去溝通，定義出傳輸的JSON格式，同時進行開發，再套版面進行時如有發生資料缺失或者需要多資料時直接請後端工程師協助，而不會耽擱手邊工作。
+                </p>
+                <p>
+                  由於是全球性的網頁供使用者瀏覽，在這專案裡面也用到了中華電信的CDN、負載平衡，Data Server的認知，受益良多。
+                </p>
+              </li>
+              <li>
+                <h3>臺北市政府電子公報資訊網、富邦影書城平台、香港匯知教育出版社教學平台</h3>
+                <p>
+                  這3個專案是我向主管提議能否用Angular 4 + .Net Core Web APi的方式進行開發，所以在這2個專案裡我算擔任前端的小leader，主要分配以及整合前端的專案，也嘗試試著由前端工程師進行刻板動作而不是由設計師進行切版，所以在此專案對UI的部分有深刻的認知。
+                </p>
+                <p>
+                  在客戶(富邦)有要求同時上線500人，所以也要求團隊的後端，如果回應大小沒有很大的時候，能在1-2S內回應，前端在路由的設計上都利用Angular提供的lazyload的方式載入，提升效能，增加使用者體驗。
+                </p>
+              </li>
+              <li>
+                <h4>
+                  現在個人以及朋友在開發上，是Angular 6 + .Net Core Web Api，導入CI/CD，以及使用Git來當版本控管，未來後端可能轉換成NodeJs，前端部分會學習React，熟悉多元技術。
+                </h4>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fixed-bg skills" #skills>
+    <div class="container">
+      <div class="content">
+        <h2 class="title">
+          SKILLS
+        </h2>
+        <div class="item-block">
+          <div class="skill-item">
+            <h3>前端</h3>
+            <div>
+              <ul>
+                <li>
+                  HTML5/CSS
+                </li>
+                <li>
+                  Javascript
+                </li>
+                <li>
+                  Jquery
+                </li>
+                <li>
+                  Typescript
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div>
+              <h3>後端</h3>
+              <ul>
+                <li>
+                  C#
+                </li>
+                <li>
+                  MS-SQL
+                </li>
+
+                <li>
+                  PostgreSQL
+                </li>
+
+                <li>
+                  MongoDB
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="skill-item">
+            <h3>框架</h3>
+            <ul>
+              <li>AngularJs</li>
+              <li>Angular</li>
+              <li>ASP.NET</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fixed-bg trait" #trait>
+    <div class="container">
+      <div class="content">
+        <div class="box">
+          <h2 class="title">
+            TRAIT
+          </h2>
+          <div>
+            <ul>
+              <li>
+                <h3>以學習以及實作中自我成長，追求新知識、深入感興趣細節</h3>
+                <p class="margin-0">
+                  多學習非工作上的實務。
+                </p>
+                <ul class="t-description">
+                  <li>
+                    Angular
+                    <br> 現階段前端三大框架其中的一個，因為本身滿早接觸前端(AngularJS)，所以持續使用到現在，從輕框架的1，到現在SPA的6，深入研究內部運作、了解其生命週期， 其中Angular搭配了RxJs，以及TypeScript，解決了Javascript中最麻煩的非同步以及弱型別處理，但了解過後其實優雅的是RxJs以及TypeScript，了解過後，都可以運用在程式邏輯上，讓寫程式流程更順暢，coding
+                    style定義更明確。
+                  </li>
+                  <li>
+                    PWA
+                    <br> 因應現今APP正夯時代，大部分的人幾乎都是在瀏覽手機，但不太深入了解APP情況下，也可以用網頁製作APP，Service Worker的cache、Push Service的推撥，來製作瀏覽類的APP，現階段也有許多APP也是用網頁製作出來的呢!
+                  </li>
+                  <li>
+                    NoSQL
+                    <br> 大數據時代以及NodeJs的崛起，關聯式資料庫在存取大量資料的時候會有許多的問題，現今有許多NoSQL的產品，包括了Mongo以及FireBase等等，FireBase又提供了realtime的功能，例如:聊天室，在製作許多產品上往往很需要此功能及效果，就能達到以前不好處理資料庫的部分。
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h3>注重團隊溝通</h3>
+                <p class="margin-0">
+                  對於一個團隊的進行，溝通是非常重要的，當然溝通並不是盲目的，以現在段個人在開發專案與團隊討論來說
+                </p>
+                <ul class="t-description">
+                  <li>
+                    事前規劃
+                    <br>明確的需求，後端資料庫以及網站地圖的規劃後才能確認整體系統的走向以及流程
+                  </li>
+                  <li>
+                    傳輸格式(API、JSON)確認
+                    <br>往往這個是最需要溝通的，在開發上可參考畫面或者功能性討論出需要的格式，同步進行開發，後端可先好寫一個功能的CRUD，再補上該功能所需要特別的API，來開發完整的功能
+                  </li>
+
+                  <li>
+                    問題確認
+                    <br>以前後端開發來說，頁面死掉常常會不知道是後端問題或者前端出錯，所以團隊都會請前端進行API呼叫時要catch，如果後端不是回應200，會發出各error code的警訊，利於了解問題在哪，加速解決。
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h3>喜歡新鮮事物</h3>
+                <p class="margin-0">
+                  資訊爆炸的時代，隨時關注熱門以及感興趣事物，讓自我能力不落人後，而且前端的時代又是進步最快的，Angular在短短的三年內也從1版本到6版本了，增加的功能往往都非常讓人驚豔，最想學習的新事物是React，因為React的使用者真的太多了，想要了解到底裡面也有什麼魔法，可以深深吸引這麼多人，再來React
+                  native也是可以寫出最接近原生APP的產品，如果未來公司有需求，可以馬上上手轉型接軌新時代的網頁技術。
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fixed-bg trait">
+    <div class="container">
+      <div class="content">
+        <div class="back" (click)="goTop()">
+          <div>
+            <span class="icon-arrow-up"></span>
+          </div>
+          <a class="back-text">Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

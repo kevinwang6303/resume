@@ -1,17 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home.component';
+import { PdfResumeComponent } from './pdf-resume.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: './pages/index/index.module#IndexModule'
-      }
-    ]
+    component: PdfResumeComponent
   }
 ];
 
@@ -19,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule {}
+export class PdfResumeRoutingModule {}

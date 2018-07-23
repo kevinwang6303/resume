@@ -2,9 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   loadChildren: './pages/home/home.module#HomeModule'
+  // },
   {
     path: '',
-    loadChildren: './pages/home/home.module#HomeModule'
+    loadChildren: './pages/pdf-resume/pdf-resume.module#PdfResumeModule'
   }
 ];
 
