@@ -55,7 +55,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngAfterViewInit() {
     this.video.nativeElement.muted = true;
@@ -96,9 +96,11 @@ export class IndexComponent implements OnInit, AfterViewInit {
         break;
     }
     ele.scrollIntoView({
-      block: 'center',
+      block: 'start',
       behavior: 'smooth'
     });
+
+    this.menuElm.nativeElement.style.display = 'none';
   }
 
   goTop() {
