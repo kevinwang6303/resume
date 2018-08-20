@@ -13,12 +13,18 @@ import { fromEvent, Observable } from 'rxjs';
   styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit, AfterViewInit {
-  @ViewChild('video') video: ElementRef;
-  @ViewChild('menu') menuElm: ElementRef;
-  @ViewChild('about') about: ElementRef;
-  @ViewChild('experience') experience: ElementRef;
-  @ViewChild('skills') skills: ElementRef;
-  @ViewChild('trait') trait: ElementRef;
+  @ViewChild('video')
+  video: ElementRef;
+  @ViewChild('menu')
+  menuElm: ElementRef;
+  @ViewChild('about')
+  about: ElementRef;
+  @ViewChild('experience')
+  experience: ElementRef;
+  @ViewChild('skills')
+  skills: ElementRef;
+  @ViewChild('trait')
+  trait: ElementRef;
 
   scrollEvent: Observable<any>;
   toDay = new Date();
@@ -55,7 +61,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     this.video.nativeElement.muted = true;
@@ -100,11 +106,19 @@ export class IndexComponent implements OnInit, AfterViewInit {
       behavior: 'smooth'
     });
 
-    this.menuElm.nativeElement.style.display = 'none';
+    this.menuElm.nativeElement.style.opacity = '.5';
+    setTimeout(() => {
+      const tempWidth = document.body.offsetWidth < 1064 ? 100 : 50;
+      window.scroll({
+        top: window.scrollY - tempWidth,
+        left: 0,
+        behavior: 'smooth'
+      });
+      this.menuElm.nativeElement.style.opacity = '1';
+    }, 1500);
   }
 
   goTop() {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }
-
 }

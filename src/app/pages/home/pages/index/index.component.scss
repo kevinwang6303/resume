@@ -23,6 +23,7 @@ $menu-line-color: white;
   z-index: 1;
   padding-left: 250px;
   background: #000;
+  transition: all 500ms linear;
   &.fixed {
     position: fixed;
     top: 0;
