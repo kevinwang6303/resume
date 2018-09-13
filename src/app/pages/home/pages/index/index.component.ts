@@ -4,18 +4,18 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit
-} from '@angular/core';
+} from "@angular/core";
 
-import { fromEvent, Observable } from 'rxjs';
+import { fromEvent, Observable } from "rxjs";
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  selector: "app-index",
+  templateUrl: "./index.component.html",
+  styleUrls: ["./index.component.scss"]
 })
 export class IndexComponent implements OnInit, AfterViewInit {
-  @ViewChild('video')
+  @ViewChild("video")
   video: ElementRef;
-  @ViewChild('menu')
+  @ViewChild("menu")
   menuElm: ElementRef;
   @ViewChild('about')
   about: ElementRef;
@@ -58,10 +58,24 @@ export class IndexComponent implements OnInit, AfterViewInit {
       } else {
         this.setFixed(0);
       }
+      this.menuArray.forEach(x => {
+        x.active = false;
+      });
+      this.checkAction(this.about, 0);
+      this.checkAction(this.experience, 1);
+      this.checkAction(this.skills, 2);
+      this.checkAction(this.trait, 3);
     });
   }
 
   ngOnInit() {}
+
+  checkAction(item, index) {
+    const tempItem = item.nativeElement.getBoundingClientRect();
+    if (0 < tempItem.top && tempItem.top < window.innerHeight) {
+      this.menuArray[index].active = true;
+    }
+  }
 
   ngAfterViewInit() {
     this.video.nativeElement.muted = true;
